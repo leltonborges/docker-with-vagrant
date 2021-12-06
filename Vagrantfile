@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "master" do |master|
         master.vm.define "master"
         master.vm.synced_folder "./config", "/vagrant"
-        master.vm.network "public_network", ip: "192.168.1.100", bridge: "enp3s0"
+        master.vm.network "public_network", bridge: "enp3s0"
         master.vm.provision "shell", inline: $script_docker
         master.vm.hostname = "master"
         master.vm.provision "shell", inline: $script_swarm
@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
     (1..3).each do |i|
         config.vm.define "node#{i}" do |node|
             node.vm.hostname = "node#{i}"
-            node.vm.network "public_network", ip: "192.168.1.10#{i}", bridge: "enp3s0"
+            node.vm.network "public_network", bridge: "enp3s0"
             node.vm.provision "shell", inline: $script_docker
 		end
     end
