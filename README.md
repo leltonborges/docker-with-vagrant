@@ -4,8 +4,8 @@
 + 1 vm master
 + x3 vm nodes
 
-### Requirements for vm
+### Requirements for VMs
 + 1 CPU
-+ 1024GB
++ 1GB
 
 > *The objective is only to refine concepts*
